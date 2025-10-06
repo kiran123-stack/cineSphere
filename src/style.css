@@ -1,0 +1,719 @@
+*{
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "li";
+    src: url('https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Rg.woff2');
+}
+body{
+    background-color: #000;
+    
+}
+
+.page-1{
+    background-image: url('https://assets.nflxext.com/ffe/siteui/vlv3/d482944d-eab4-4a64-89c9-a07a508a6e42/web/IN-en-20250929-TRIFECTA-perspective_4cf0c8a1-bd35-4d72-a49f-165021531dde_small.jpg') ;
+    height: 100vh;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    
+
+}
+
+.page-1::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Darken only the background */
+  z-index: 1;
+}
+
+/*
+ * Main Navbar Structure and Layout
+ */
+
+#navbar {
+    /* Ensures the navbar spans the width and sits at the top */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%; /* Padding on the sides for spacing */
+    
+    
+    position: relative; /* To overlay a background image/hero section */
+    top: 0;
+    left: 0;
+    width: 90%; /* Covers 100% of the viewport minus the padding (5% on each side) */
+    z-index: 2;
+    background-color: transparent; /* Usually transparent on the landing page */
+}
+
+/*
+ * Logo Styling
+ */
+
+#nav-img img {
+    /* Set the logo size to match Netflix's standard header logo */
+    height: 80px; 
+    width: auto;
+    border-radius: 50px;
+    
+
+}
+
+/*
+ * Action Buttons Container
+ */
+
+#nav-btn {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between the language selector and Sign In button */
+    position: relative; /* Essential for positioning the language dropdown menu */
+}
+
+/*
+ * Language Dropdown Toggle Button (.lang-btn)
+ */
+
+.lang-btn {
+    /* Classic Netflix Dark Language Button Look */
+    background-color: rgba(0, 0, 0, 0.4); 
+    color: white;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    padding: 7px 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    z-index: 2;
+}
+
+.lang-btn:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+/*
+ * Language Dropdown Menu Container (The <div> wrapping the two language buttons)
+ */
+
+/* The element wrapping the two language options must be absolutely positioned */
+#nav-btn > div:first-of-type {
+    position: absolute;
+    top: 100%; /* Position below the toggle button */
+    right: 70px; /* Adjust this to align with the toggle button */
+    margin-top: 5px; /* Small gap below the toggle button */
+    background-color: rgba(0, 0, 0, 0.8); /* Dark background for the menu */
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    min-width: 120px;
+    z-index: 200;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    padding: 5px 0;
+    display: flex; /* To stack the buttons vertically */
+    flex-direction: column;
+}
+
+/*
+ * Individual Language Option Buttons (inside the menu)
+ */
+
+#nav-btn > div:first-of-type button {
+    display: block;
+    width: 100%;
+    padding: 8px 15px;
+    background: none;
+    border: none;
+    color: white;
+    text-align: left;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+#nav-btn > div:first-of-type button:hover,
+#nav-btn > div:first-of-type button.active {
+    background-color: rgba(255, 255, 255, 0.1); /* Highlight on hover/active */
+}
+
+/*
+ * Sign In Button (.sign-btn)
+ */
+
+.sign-btn {
+    /* The distinctive Netflix Red button */
+    background-color: #e50914; /* Netflix Red */
+    color: white;
+    padding: 7px 17px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.sign-btn:hover {
+    background-color: #f40612; /* Slightly darker/more vibrant red on hover */
+}
+
+#hero-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color:aliceblue;
+    padding-top: 150px;
+    position: relative;
+    z-index: 2;
+    gap:8px;
+
+
+}
+
+@keyframes heading{
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: scale(1.5)
+    }
+
+    100% {
+        transform: translateX(2);
+    }
+}
+
+#hero-content h2{
+    font-size: 3.5vw;
+    font-family: 'li';
+    font-weight: 900;
+    transform: perspective(200px);
+    animation: heading 2s ease-in-out ;
+}
+
+#hero-content h3{
+    font-size: 1.5vw;
+    font-family: 'li';
+    font-weight: 100;
+    
+}
+
+#hero-content h4{
+     font-size: 1.5vw;
+    font-family: 'li';
+    font-weight: 100
+}
+
+#email{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap:8px;
+    position: relative;
+    z-index: 2;
+    padding-top: 20px;
+}
+
+.email-input{
+    border-radius: 4px;
+    padding: 7px 17x;
+    color: white;
+    height: 4vw;
+    width: 30vw;
+    background-color:rgba(0, 0, 0, 0.5);
+    border:1px solid white;
+    font-size: 1rem;
+}
+
+#get{
+    background-color: #e50914;
+    color: white;
+    padding: 7px 17px;
+    border: none;
+    border-radius: 4px;
+    font-size: 2rem;
+    cursor: pointer;
+    font-weight:500;
+}
+
+#page-2{
+    height: 100vh;
+    width: 100%;
+    position:relative;
+    z-index: 2;
+   padding-top: 20px;
+   padding-left: 20px;
+   margin-top: 110px;
+    border-top: 2px solid red; 
+    padding-right: 20px;
+
+   
+}
+
+#page-2 h2{
+    font-size: 1.5vw;
+    font-style: normal;
+    font-family: 'li';
+    font-weight: 800;
+    color:white;
+    border-bottom: #aaa;
+    padding-left: 20px;
+}
+
+#page-2 h3{
+    font-size: 1.5vw;
+    font-style: normal;
+    font-family: 'li';
+    font-weight: 200;
+    color:white;
+    padding-left: 20px;
+    padding-top: 100px;
+    
+
+}
+
+#card{
+   width: 100%; 
+    
+    padding-top: 30px;
+    position: relative;
+    padding-left: 20px;
+    padding-right: 20px
+}
+
+.movie-slide {
+   
+    width: 35vw; /* Example: 20% of viewport width */
+    max-width: 250px; /* Don't get too huge on huge screens */
+    height: 100px;
+    
+    background-color: white; /* Visual placeholder color */
+    border-radius: 10px;
+    overflow: visible;
+    position: relative;
+
+
+    
+    
+}
+.movie-slide img{
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+    border-radius: 8px;
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+.movie-slide img:hover{
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.ranking-card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative; 
+    
+}
+
+.ranking-number {
+    position: absolute;
+    bottom: -10px; 
+    left: -20%;    
+    z-index: 2;   
+    font-size: 8vw; 
+    font-weight: 900;
+    font-family: Arial, sans-serif; 
+    color: gray; 
+    -webkit-text-stroke: 0.01em #e5e5e5; 
+    text-stroke: 0.01em #e5e5e5;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(to top, #777, transparent 30%);
+    user-select: none;
+}
+
+#page-3{
+min-height: 100vh;
+width: 100%;
+position: relative;
+z-index: 2;
+display: flex;
+flex-wrap: wrap;
+padding-left: 40px ;
+padding-right: 40px ;
+padding-bottom: 20%;
+margin-top: -80px;
+}
+
+#page-3 .box{
+    flex: 1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+      background-image: linear-gradient(
+        to bottom right,      /* Direction of the gradient */
+        #6A0DAD,              /* Start Color (Deep Purple) */
+        #D400FF               /* End Color (Pinkish-Violet) */
+    );
+    border-radius: 20px;
+    width: 10vw;
+    height: 45vh;
+    gap: 15px;
+    margin:6px;
+    text-align: center;
+    color: white;
+
+
+
+
+}
+
+#page-3 .box h2{
+    padding-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 2vw;
+    font-style: normal;
+    font-family: 'li';
+    font-weight: 900;
+    
+}
+
+#page-3 .box h3{
+    padding-top: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 1.5vw;
+    font-style: normal;
+    font-family: 'li';
+    font-weight: 400;
+    
+}
+
+#page-4{
+min-height: 100vh;
+width: 100%;
+position: relative;
+z-index: 2;
+display: flex;
+flex-wrap: wrap;
+padding-left: 40px ;
+padding-right: 40px ;
+padding-bottom: 20%;
+}
+
+#page-4 h2{
+    font-size: 1.5vw;
+    font-style: normal;
+    font-family: 'li';
+    font-weight: 300;
+    color:white;
+    padding-left: 20px;
+   z-index: 3;
+   margin-top: -280px;
+   
+
+
+}
+
+/* Background + Layout */
+.movie-faq-container {
+  min-height: 100vh;
+  background: radial-gradient(circle at top left, #2a0055, #000);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  font-family: "Poppins", sans-serif;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  border-radius: 20px;
+  margin-bottom: -100px;
+  margin-top: -190px;
+  
+}
+
+.movie-faq-wrapper {
+  width: 100%;
+  max-width: 800px;
+}
+
+/* Title */
+.movie-faq-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  font-weight: 700;
+  background:  white;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 1px;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #ff00c8, 0 0 20px #e100ff, 0 0 30px #e100ff;
+  }
+  to {
+    text-shadow: 0 0 20px #ff6cff, 0 0 30px #e100ff, 0 0 40px #e100ff;
+  }
+}
+
+/* FAQ Box */
+.movie-faq-box {
+  background: rgba(30, 0, 50, 0.8);
+  border: 1px solid rgba(255, 0, 150, 0.3);
+  border-radius: 15px;
+  margin-bottom: 15px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(255, 0, 200, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-faq-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 25px rgba(255, 0, 200, 0.4);
+}
+
+/* Question Header */
+.movie-faq-question-header {
+  cursor: pointer;
+  padding: 18px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, #1a001f, #280042);
+  transition: background 0.4s ease;
+}
+
+.movie-faq-question-header:hover {
+  background: linear-gradient(90deg, #330047, #490064);
+}
+
+.movie-faq-question {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* Icon */
+.movie-faq-icon {
+  font-size: 1.8rem;
+  color: #ff33cc;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.movie-faq-icon.active {
+  transform: rotate(180deg);
+  color: #e100ff;
+}
+
+/* Answer */
+.movie-faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  padding: 0 25px;
+  color: #f0dfff;
+  transition: all 0.5s ease-in-out;
+  background: rgba(0, 0, 0, 0.3);
+  border-top: 1px solid rgba(255, 0, 150, 0.2);
+}
+
+.movie-faq-answer.show {
+  max-height: 400px;
+  opacity: 1;
+  padding: 20px 25px;
+}
+
+/* === GENERAL FOOTER STYLING === */
+.movie-footer {
+  background: linear-gradient(145deg, #1a001f, #0a0010);
+  color: #f0e6ff;
+  font-family: 'Poppins', sans-serif;
+  padding: 60px 10%;
+  border-top: 2px solid rgba(255, 0, 150, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.movie-footer::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 0, 255, 0.05), transparent 60%);
+  animation: pulseGlow 10s infinite linear;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.2); opacity: 0.8; }
+}
+
+/* === TOP SECTION === */
+.footer-top-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  animation: fadeInUp 1.2s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.contact-title {
+  color: #ff00cc;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.contact-number-label {
+  font-size: 1rem;
+  color: #ddd;
+}
+
+.contact-number-value {
+  color: #ff66ff;
+  font-weight: bold;
+}
+
+/* === SOCIAL ICONS === */
+.footer-social-links {
+  display: flex;
+  gap: 12px;
+}
+
+.social-icon-link {
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-icon-badge {
+  display: inline-block;
+  background: rgba(255, 0, 150, 0.2);
+  border: 1px solid rgba(255, 0, 255, 0.4);
+  color: #ff99ff;
+  width: 40px;
+  height: 40px;
+  line-height: 38px;
+  text-align: center;
+  font-weight: 600;
+  border-radius: 50%;
+  transition: all 0.4s ease;
+}
+
+.social-icon-badge:hover {
+  background: linear-gradient(45deg, #ff00cc, #6600ff);
+  color: white;
+  transform: scale(1.1) rotate(8deg);
+  box-shadow: 0 0 12px #ff00cc;
+}
+
+/* === LINK GRID === */
+.footer-link-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 40px;
+  margin-bottom: 40px;
+  animation: fadeInUp 1.5s ease forwards;
+}
+
+.footer-column-title {
+  font-size: 1.1rem;
+  color: #ff99ff;
+  margin-bottom: 12px;
+  border-bottom: 2px solid rgba(255, 0, 255, 0.2);
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+.footer-link-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-link-item {
+  display: inline-block;
+  text-decoration: none;
+  color: #bbb;
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.footer-link-item::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #ff00cc, #6600ff);
+  transition: width 0.3s ease;
+}
+
+.footer-link-item:hover {
+  color: #fff;
+}
+
+.footer-link-item:hover::after {
+  width: 100%;
+}
+
+/* === COPYRIGHT SECTION === */
+.footer-copyright-section {
+  text-align: center;
+  border-top: 1px solid rgba(255, 0, 255, 0.1);
+  padding-top: 20px;
+  font-size: 0.9rem;
+  color: #aaa;
+  animation: fadeInUp 1.8s ease forwards;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .footer-top-bar {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .footer-link-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-link-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-column {
+    text-align: center;
+  }
+}
+
