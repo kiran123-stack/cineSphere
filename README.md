@@ -1,16 +1,38 @@
-# React + Vite
+# 🎬 Cinespere
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Cinespere** is a modern movie streaming website inspired by **Netflix**, built to provide an immersive, responsive, and cinematic browsing experience.  
+This project showcases front-end development skills using **React**, **Tailwind CSS**, and **modern web tools** — perfectly replicating the Netflix-style UI and user interactions.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌟 Features
 
-## React Compiler
+✅ **Netflix-inspired UI** – Replicates Netflix's sleek dark theme and layout.  
+✅ **Responsive Design** – Works seamlessly across desktops, tablets, and mobiles.  
+✅ **Dynamic Movie Data** – Fetches movies and TV show data from APIs (like TMDB).  
+✅ **Hero Banner Section** – Displays trending movies dynamically.  
+✅ **Category Rows** – Scrollable rows with movie posters grouped by genre.  
+✅ **Hover Effects** – Smooth animations and video previews.  
+✅ **Search Functionality** – Find movies and shows quickly.  
+✅ **User Authentication (Optional)** – Sign up / log in feature (Firebase).  
+✅ **Trailer Popup** – Watch trailers directly inside the site.  
+✅ **Footer & Navbar** – Clean, reusable components inspired by Netflix.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+| Category | Technology |
+|-----------|-------------|
+| **Frontend** | React.js, Vite |
+| **Styling** | Tailwind CSS |
+| **Animations** | GSAP / Framer Motion |
+| **API** | TMDB API (The Movie Database) |
+| **Icons** | React Icons / Lucide Icons |
+| **Deployment** | Vercel / Netlify |
+| **Version Control** | Git + GitHub |
+
+---
+
+## 📁 Folder Structure
+
