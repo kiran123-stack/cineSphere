@@ -8,14 +8,10 @@ This project showcases front-end development skills using **React**, **Tailwind 
 ## 🌟 Features
 
 ✅ **Netflix-inspired UI** – Replicates Netflix's sleek dark theme and layout.  
-✅ **Responsive Design** – Works seamlessly across desktops, tablets, and mobiles.  
-✅ **Dynamic Movie Data** – Fetches movies and TV show data from APIs (like TMDB).  
+✅ **Responsive Design** – Works seamlessly across desktops, tablets, and mobiles.    
 ✅ **Hero Banner Section** – Displays trending movies dynamically.  
 ✅ **Category Rows** – Scrollable rows with movie posters grouped by genre.  
-✅ **Hover Effects** – Smooth animations and video previews.  
-✅ **Search Functionality** – Find movies and shows quickly.  
-✅ **User Authentication (Optional)** – Sign up / log in feature (Firebase).  
-✅ **Trailer Popup** – Watch trailers directly inside the site.  
+✅ **Hover Effects** – Smooth animations and video previews.   
 ✅ **Footer & Navbar** – Clean, reusable components inspired by Netflix.
 
 ---
