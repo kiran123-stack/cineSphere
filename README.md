@@ -23,7 +23,6 @@ This project showcases front-end development skills using **React**, **Tailwind 
 | **Frontend** | React.js, Vite |
 | **Styling** | Tailwind CSS |
 | **Animations** | GSAP  |
-| **API** | TMDB API (The Movie Database) |
 | **Icons** | React Icons / Lucide Icons |
 | **Deployment** | Vercel  |
 | **Version Control** | Git + GitHub |
