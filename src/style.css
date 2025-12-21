@@ -512,33 +512,30 @@ body {
         font-size: 0.8rem;
     }
 }
-/* src/style.css */
-
-/* src/style.css */
-
-/* 1. Swiper Container Fix */
-.swiper {
+/* Fix for the card container */
+#card {
   width: 100%;
-  padding: 50px 0 !important; /* Spacing for the hover-zoom */
-  overflow: visible !important; /* Crucial: allows rank numbers to show */
+  padding: 40px 0;
+  /* Remove flex and overflow-x: auto; Swiper handles this now */
 }
 
-/* 2. Slide Dimensions */
+/* Ensure the Swiper container is visible */
+.swiper {
+  width: 100%;
+  padding: 50px 0 !important;
+  overflow: visible !important; /* Important for the rank numbers */
+}
+
+/* Slide styling */
 .movie-slide {
-  height: 250px; /* Fixed height for mobile */
+  height: 250px; /* Fixed height for mobile visibility */
   position: relative;
   display: flex !important;
   align-items: center;
   justify-content: flex-end;
 }
 
-@media (min-width: 1024px) {
-  .movie-slide {
-    height: 180px; /* Wider layout for desktop */
-  }
-}
-
-/* 3. Image Rendering */
+/* Force image to fill its allocated space */
 .ranking-card-inner {
   width: 100%;
   height: 100%;
@@ -546,18 +543,17 @@ body {
 }
 
 .ranking-card-inner img {
-  width: 85%; /* Space for the rank number */
+  width: 85%; /* Leave space for the number */
   height: 100%;
   object-fit: cover;
   border-radius: 10px;
-  display: block !important; /* Force browser to render image */
+  display: block !important; /* Force browser to render */
   position: absolute;
   right: 0;
   z-index: 5;
-  transition: transform 0.4s ease;
 }
 
-/* 4. Overlapping Rank Numbers (Netflix Look) */
+/* Style for the Rank Numbers */
 .ranking-number {
   position: absolute;
   left: -20px;
@@ -565,15 +561,9 @@ body {
   font-size: clamp(80px, 12vw, 150px);
   font-weight: 900;
   color: #000;
-  -webkit-text-stroke: 2px #fff; /* White outline */
-  z-index: 1; /* Sits behind the image */
+  -webkit-text-stroke: 2px #fff;
+  z-index: 1;
   line-height: 1;
-}
-
-/* Glowing Hover Effect */
-.movie-slide:hover img {
-  transform: scale(1.1) translateY(-10px);
-  box-shadow: 0 0 25px #ff007f; /* primary-pink glow */
 }
 /* ===================================================
    MOVIE FAQ SECTION - Pink & Purple Glowing Theme
