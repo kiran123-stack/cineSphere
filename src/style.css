@@ -637,117 +637,127 @@ body {
    MOVIE FAQ SECTION - Pink & Purple Glowing Theme
    =================================================== */
 
+/* 1. Main Container with Glowing Background */
 .movie-faq-container {
   padding: 80px 5%;
-  background: transparent;
+  background: radial-gradient(circle at center, #1a0b2e 0%, #0f0715 100%);
+  min-height: 400px;
   display: flex;
   justify-content: center;
   position: relative;
-  z-index: 2;
+  overflow: hidden;
+}
+
+/* Subtle Animated Glow behind the wrapper */
+.movie-faq-container::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+  background: var(--primary-pink, #ff007f);
+  filter: blur(150px);
+  opacity: 0.15;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
 }
 
 .movie-faq-wrapper {
   width: 100%;
-  max-width: 850px; /* Professional reading width */
+  max-width: 800px;
+  z-index: 2;
 }
 
 .movie-faq-title {
   text-align: center;
   font-size: clamp(1.8rem, 4vw, 2.5rem);
-  margin-bottom: 50px;
+  margin-bottom: 40px;
   font-weight: 800;
   color: #fff;
-  text-shadow: 0 0 15px rgba(255, 0, 127, 0.5);
+  text-shadow: 0 0 15px rgba(255, 0, 127, 0.4);
+  letter-spacing: 1px;
 }
 
-/* Individual FAQ Item Box */
+/* 2. FAQ Box (Glassmorphism Look) */
 .movie-faq-box {
-  background: rgba(26, 11, 46, 0.6); /* Glass purple */
+  background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(157, 0, 255, 0.2);
-  margin-bottom: 12px;
-  border-radius: 12px;
-  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 10px;
+  border-radius: 4px; /* Classic Netflix-style flat edge or keep 12px for modern */
   transition: all 0.3s ease;
 }
 
 .movie-faq-box:hover {
-  border-color: var(--primary-pink);
-  box-shadow: 0 0 20px rgba(255, 0, 127, 0.2);
-  transform: scale(1.01);
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 0, 127, 0.5);
 }
 
-/* Question Header */
+/* 3. Question Header */
 .movie-faq-question-header {
-  padding: 22px 30px;
+  padding: 20px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  transition: background 0.3s;
   user-select: none;
 }
 
-.movie-faq-question-header:hover {
-  background: rgba(157, 0, 255, 0.1);
-}
-
 .movie-faq-question {
-  font-size: clamp(1rem, 1.5vw, 1.25rem);
-  font-weight: 600;
-  color: var(--text-main);
+  font-size: clamp(1rem, 1.5vw, 1.3rem);
+  font-weight: 500;
+  color: #fff;
 }
 
-/* Floating Glow Icon (+) */
+/* 4. Glowing Plus Icon (+) */
 .movie-faq-icon {
-  font-size: 2rem;
-  color: var(--primary-pink);
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s;
-  line-height: 1;
+  font-size: 2.2rem;
+  color: #fff;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+/* Rotate and Glow when active */
 .movie-faq-icon.active {
   transform: rotate(45deg); /* Turns + into x */
-  color: var(--secondary-purple);
-  text-shadow: 0 0 10px var(--secondary-purple);
+  color: #ff007f;
+  text-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f;
 }
 
-/* Answer Container */
+/* 5. The Answer (Hidden by Default with Animation) */
 .movie-faq-answer {
-  max-height: 0;
-  opacity: 0;
-  overflow: hidden;
-  padding: 0 30px;
-  color: var(--text-muted);
-  font-size: 1.05rem;
+  max-height: 0;         /* Hidden state */
+  opacity: 0;            /* Invisible state */
+  overflow: hidden;      /* Prevents text leak */
+  padding: 0 30px;       /* Horizontal padding remains */
+  color: #b1a0c7;        /* Lavender/Muted Purple Text */
+  font-size: 1.1rem;
   line-height: 1.6;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth Slide */
   background: rgba(0, 0, 0, 0.2);
 }
 
-/* Active Answer State */
+/* Active Answer State (triggered by .show class) */
 .movie-faq-answer.show {
-  max-height: 500px; /* Large enough to fit text */
+  max-height: 500px;     /* Set to a value larger than content */
   opacity: 1;
-  padding: 25px 30px;
-  border-top: 1px solid rgba(255, 0, 127, 0.2);
+  padding: 25px 30px;    /* Vertical padding appears */
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Responsive Adjustments */
-@media (max-width: 600px) {
-  .movie-faq-wrapper {
-    max-width: 100%;
-  }
-
+/* 6. Responsive Adjustments */
+@media (max-width: 768px) {
   .movie-faq-question-header {
-    padding: 18px 20px;
+    padding: 15px 20px;
   }
-
+  
   .movie-faq-question {
     font-size: 1.1rem;
-    padding-right: 15px;
   }
-
+  
   .movie-faq-answer.show {
     padding: 20px;
   }
