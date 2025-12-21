@@ -14,7 +14,7 @@ const Card = () => {
       // The rest of your Swiper props
       modules={[Navigation,  A11y]}
       spaceBetween={35} // Adjusted spacing slightly for realism
-      slidesPerView={'auto'} // Changed to 4, as 3 is often too wide for mobile
+     
       navigation={true}
       breakpoints={{
     // when window width is >= 320px (Phones)
