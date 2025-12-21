@@ -514,69 +514,66 @@ body {
 }
 /* src/style.css */
 
-/* 1. The Swiper Container */
+/* src/style.css */
+
+/* 1. Swiper Container Fix */
 .swiper {
   width: 100%;
-  /* Padding is needed so the images don't get cut when hovering/scaling */
-  padding: 50px 0 !important; 
-  overflow: visible !important; 
+  padding: 50px 0 !important; /* Spacing for the hover-zoom */
+  overflow: visible !important; /* Crucial: allows rank numbers to show */
 }
 
-/* 2. Slide Dimensions - CRITICAL */
-
- .movie-slide {
-  width: 100%;             /* Allow Swiper to control the width on mobile */
-  height: 250px;           /* Set a clear height so it doesn't collapse */
+/* 2. Slide Dimensions */
+.movie-slide {
+  height: 250px; /* Fixed height for mobile */
   position: relative;
   display: flex !important;
   align-items: center;
   justify-content: flex-end;
 }
-.movie-slide img {
-  width: 85%;              /* Ensure image has width relative to the slide */
-  height: 100%;            /* Force height to match the slide */
-  object-fit: cover;
-  display: block !important; /* Ensure the browser renders the element */
-  border-radius: 10px;
-}
 
-/* On Desktop, you can limit the width again */
 @media (min-width: 1024px) {
   .movie-slide {
-    height: 180px; 
+    height: 180px; /* Wider layout for desktop */
   }
 }
 
-/* 3. The Inner Wrapper and Image */
+/* 3. Image Rendering */
 .ranking-card-inner {
   width: 100%;
   height: 100%;
   position: relative;
-  display: block; /* Ensure it takes up space */
 }
 
 .ranking-card-inner img {
-  width: 85%; /* Space for the number to overlap on the left */
+  width: 85%; /* Space for the rank number */
   height: 100%;
   object-fit: cover;
-  border-radius: 8px;
-  display: block !important; /* Forces the browser to render the image */
+  border-radius: 10px;
+  display: block !important; /* Force browser to render image */
   position: absolute;
   right: 0;
   z-index: 5;
+  transition: transform 0.4s ease;
 }
 
-/* 4. The Rank Number */
+/* 4. Overlapping Rank Numbers (Netflix Look) */
 .ranking-number {
   position: absolute;
   left: -20px;
-  bottom: -20px;
+  bottom: -15px;
   font-size: clamp(80px, 12vw, 150px);
   font-weight: 900;
   color: #000;
-  -webkit-text-stroke: 2px #fff;
-  z-index: 2; /* Sits behind the image but above the background */
+  -webkit-text-stroke: 2px #fff; /* White outline */
+  z-index: 1; /* Sits behind the image */
   line-height: 1;
+}
+
+/* Glowing Hover Effect */
+.movie-slide:hover img {
+  transform: scale(1.1) translateY(-10px);
+  box-shadow: 0 0 25px #ff007f; /* primary-pink glow */
 }
 /* ===================================================
    MOVIE FAQ SECTION - Pink & Purple Glowing Theme
