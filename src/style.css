@@ -512,125 +512,90 @@ body {
         font-size: 0.8rem;
     }
 }
-/* ===================================================
-   SWIPER CARDS (TRENDING SECTION)
-   =================================================== */
-
-/* Container Spacing */
+/* Container for the Swiper */
 .swiper {
-  padding: 40px 0 60px 40px !important; /* Extra left padding for rank numbers */
-  overflow: visible !important; /* Allows rank numbers to "pop" out */
+  width: 100%;
+  padding: 50px 0 !important; /* Spacing for the hover scale effect */
+  overflow: visible !important; /* Required to see the ranking numbers popping out */
 }
 
-/* Individual Slide */
+/* Individual Slide styling */
 .movie-slide {
-  width: 180px !important; /* Fixed width for standard poster look */
-  height: 250px;
-  background: transparent !important;
+  width: 250px; /* Crucial: slidesPerView 'auto' needs this */
+  height: 150px;
   position: relative;
+  transition: transform 0.3s ease;
   cursor: pointer;
+}
+
+/* Hover effect for the whole slide */
+.movie-slide:hover {
+  transform: scale(1.1);
+  z-index: 10;
 }
 
 .ranking-card-inner {
   width: 100%;
   height: 100%;
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
-/* Movie Poster Image */
+/* The Movie Poster */
 .ranking-card-inner img {
-  width: 100%;
+  width: 80%; /* Leave space on the left for the number */
   height: 100%;
   object-fit: cover;
-  border-radius: 10px;
-  border: 2px solid transparent;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  position: relative;
-  z-index: 5; /* Image sits above the number */
+  border-radius: 4px;
+  position: absolute;
+  right: 0;
+  z-index: 1;
 }
 
-/* Hover Effect: Glow and Lift */
-.movie-slide:hover img {
-  transform: scale(1.08) translateY(-10px);
-  border-color: var(--primary-pink);
-  box-shadow: 0 0 25px var(--primary-pink), 0 0 50px rgba(157, 0, 255, 0.3);
-}
-
-/* The Big Rank Number */
+/* The Big Ranking Numbers (Netflix Style) */
 .ranking-number {
   position: absolute;
+  left: -15px;
   bottom: -20px;
-  left: -45px; /* Pushes the number behind the poster */
-  font-size: clamp(100px, 12vw, 150px); /* Massive responsive size */
+  font-size: 120px;
   font-weight: 900;
-  line-height: 1;
-  z-index: 1; /* Sits behind the image */
-  
-  /* Modern Outline Style */
   color: #000;
-  -webkit-text-stroke: 2px var(--text-muted);
-  text-shadow: 0 0 15px rgba(157, 0, 255, 0.5);
-  
-  user-select: none;
-  transition: all 0.4s ease;
+  /* Creates the white outline effect */
+  -webkit-text-stroke: 2px #595959; 
+  z-index: 2;
+  line-height: 1;
+  font-family: 'li', sans-serif; /* Using your custom font */
 }
 
-/* Glowing Rank Number on Hover */
-.movie-slide:hover .ranking-number {
-  -webkit-text-stroke: 2px var(--primary-pink);
-  color: rgba(255, 0, 127, 0.1); /* Subtle pink tint */
-  text-shadow: 0 0 30px var(--primary-pink);
-}
-
-/* ===================================================
-   SWIPER NAVIGATION BUTTONS (PINK & PURPLE)
-   =================================================== */
-
+/* Customize Swiper Navigation Buttons (Arrows) */
 .swiper-button-next,
 .swiper-button-prev {
-  color: var(--primary-pink) !important;
-  background: rgba(15, 7, 21, 0.8);
-  width: 45px !important;
-  height: 80px !important;
-  top: 50% !important;
-  transform: translateY(-50%);
-  border-radius: 5px;
-  transition: all 0.3s ease;
-}
-
-.swiper-button-next::after,
-.swiper-button-prev::after {
-  font-size: 20px !important;
-  font-weight: bold;
+  color: #fff !important;
+  background: rgba(0, 0, 0, 0.5);
+  width: 40px !important;
+  height: 100% !important;
+  top: 22px !important;
+  margin-top: 0 !important;
+  transition: background 0.2s;
 }
 
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
-  background: var(--primary-pink);
-  color: #fff !important;
-  box-shadow: 0 0 20px var(--primary-pink);
+  background: rgba(0, 0, 0, 0.8);
 }
 
-/* Hide navigation on small mobile */
-@media (max-width: 600px) {
-  .swiper-button-next,
-  .swiper-button-prev {
-    display: none !important;
-  }
-  
-  .swiper {
-    padding-left: 30px !important;
-  }
+.swiper-button-next { right: 0 !important; }
+.swiper-button-prev { left: 0 !important; }
 
+/* Responsive adjustments */
+@media (max-width: 768px) {
   .movie-slide {
-    width: 140px !important; /* Smaller cards for mobile */
-    height: 200px;
+    width: 180px;
+    height: 110px;
   }
-
   .ranking-number {
     font-size: 80px;
-    left: -25px;
-    bottom: -10px;
   }
 }
 /* ===================================================
