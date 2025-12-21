@@ -512,91 +512,135 @@ body {
         font-size: 0.8rem;
     }
 }
-/* Container for the Swiper */
+/* ===================================================
+   CINESPHERE TRENDING CARDS - PINK & PURPLE THEME
+   =================================================== */
+
+/* 1. Swiper Container Fixes */
 .swiper {
-  width: 100%;
-  padding: 50px 0 !important; /* Spacing for the hover scale effect */
-  overflow: visible !important; /* Required to see the ranking numbers popping out */
+    width: 100%;
+    padding: 50px 0 !important; /* Spacing for the hover scaling */
+    overflow: visible !important; /* Allows rank numbers to pop out */
 }
 
-/* Individual Slide styling */
+/* 2. Slide & Card Dimensions */
 .movie-slide {
-  width: 250px; /* Crucial: slidesPerView 'auto' needs this */
-  height: 150px;
-  position: relative;
-  transition: transform 0.3s ease;
-  cursor: pointer;
+    /* Responsive heights for mobile vs desktop */
+    height: 250px; 
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Pushes image to the right of the number */
+    cursor: pointer;
+    background: transparent !important;
 }
 
-/* Hover effect for the whole slide */
-.movie-slide:hover {
-  transform: scale(1.1);
-  z-index: 10;
+@media (min-width: 1024px) {
+    .movie-slide {
+        height: 180px; /* Wider, standard look for desktop */
+    }
 }
 
 .ranking-card-inner {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  display: flex;
-  align-items: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
 }
 
-/* The Movie Poster */
+/* 3. Movie Poster Image */
 .ranking-card-inner img {
-  width: 80%; /* Leave space on the left for the number */
-  height: 100%;
-  object-fit: cover;
-  border-radius: 4px;
-  position: absolute;
-  right: 0;
-  z-index: 1;
+    width: 85%; /* Leave 15% space for the ranking number overlap */
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    position: absolute;
+    right: 0;
+    z-index: 5; /* Image sits on top of the number shadow */
+    border: 2px solid transparent;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* The Big Ranking Numbers (Netflix Style) */
+.movie-slide:hover img {
+    transform: scale(1.1) translateY(-10px);
+    border-color: #ff007f; /* primary-pink */
+    box-shadow: 0 0 20px #ff007f, 0 0 40px rgba(157, 0, 255, 0.3);
+}
+
+/* 4. Large Netflix-Style Rank Numbers */
 .ranking-number {
-  position: absolute;
-  left: -15px;
-  bottom: -20px;
-  font-size: 120px;
-  font-weight: 900;
-  color: #000;
-  /* Creates the white outline effect */
-  -webkit-text-stroke: 2px #595959; 
-  z-index: 2;
-  line-height: 1;
-  font-family: 'li', sans-serif; /* Using your custom font */
+    position: absolute;
+    left: -20px;
+    bottom: -15px;
+    font-size: clamp(80px, 12vw, 150px); /* Responsive size scaling */
+    font-weight: 900;
+    line-height: 1;
+    z-index: 1; /* Sits behind the image */
+    
+    /* Modern Outline Style */
+    color: #0f0715; /* bg-dark */
+    -webkit-text-stroke: 2px #b1a0c7; /* text-muted lavender */
+    text-shadow: 0 0 15px rgba(157, 0, 255, 0.5);
+    
+    user-select: none;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.4s ease;
 }
 
-/* Customize Swiper Navigation Buttons (Arrows) */
+.movie-slide:hover .ranking-number {
+    -webkit-text-stroke: 2px #ff007f;
+    color: rgba(255, 0, 127, 0.1);
+    text-shadow: 0 0 30px #ff007f;
+}
+
+/* 5. Swiper Navigation Buttons (Pink & Purple Glow) */
 .swiper-button-next,
 .swiper-button-prev {
-  color: #fff !important;
-  background: rgba(0, 0, 0, 0.5);
-  width: 40px !important;
-  height: 100% !important;
-  top: 22px !important;
-  margin-top: 0 !important;
-  transition: background 0.2s;
+    color: #ff007f !important;
+    background: rgba(15, 7, 21, 0.8);
+    width: 50px !important;
+    height: 80px !important;
+    top: 50% !important;
+    transform: translateY(-50%);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 0, 127, 0.2);
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 24px !important;
+    font-weight: 900;
 }
 
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
-  background: rgba(0, 0, 0, 0.8);
+    background: #ff007f;
+    color: white !important;
+    box-shadow: 0 0 25px #ff007f;
 }
 
-.swiper-button-next { right: 0 !important; }
-.swiper-button-prev { left: 0 !important; }
-
-/* Responsive adjustments */
+/* 6. Mobile Specific Overrides */
 @media (max-width: 768px) {
-  .movie-slide {
-    width: 180px;
-    height: 110px;
-  }
-  .ranking-number {
-    font-size: 80px;
-  }
+    .swiper-button-next,
+    .swiper-button-prev {
+        display: none !important; /* Hide arrows on small phones for better UX */
+    }
+    
+    .swiper {
+        padding-left: 30px !important;
+    }
+
+    .movie-slide {
+        height: 220px;
+    }
+
+    .ranking-number {
+        font-size: 90px;
+        left: -15px;
+        bottom: -5px;
+    }
 }
 /* ===================================================
    MOVIE FAQ SECTION - Pink & Purple Glowing Theme
