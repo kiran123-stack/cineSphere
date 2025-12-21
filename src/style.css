@@ -10,12 +10,7 @@
     src: url('https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Rg.woff2');
 }
 
-body {
-    background-color: #000;
-    font-family: 'li', Arial, sans-serif;
-    color: #fff;
-    overflow-x: hidden;
-}
+
 /* ===================================================
    CINESPHERE PREMIUM PINK & PURPLE THEME
    =================================================== */
@@ -223,5 +218,183 @@ body {
 
   #get {
     width: 100%;
+  }
+}
+/* === GENERAL FOOTER STYLING === */
+.movie-footer {
+  background: linear-gradient(145deg, #1a001f, #0a0010); /* Deep Purple Gradient */
+  color: #f0e6ff;
+  font-family: 'Poppins', sans-serif;
+  padding: 80px 5%;
+  border-top: 2px solid rgba(255, 0, 150, 0.3); /* Glowing Top Border */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle background pulse effect */
+.movie-footer::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 0, 255, 0.05), transparent 60%);
+  animation: pulseGlow 10s infinite linear;
+  pointer-events: none;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+.footer-content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* === TOP BAR: CONTACT & SOCIALS === */
+.footer-top-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 50px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-title {
+  color: #ff00cc;
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.contact-number-label {
+  font-size: 1rem;
+  color: #bbb;
+}
+
+.contact-number-value {
+  color: #fff;
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(255, 0, 204, 0.5);
+}
+
+/* Social Icons */
+.footer-social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icon-link {
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.social-icon-badge {
+  display: inline-block;
+  background: rgba(255, 0, 150, 0.15);
+  border: 1px solid rgba(255, 0, 255, 0.4);
+  color: #ff99ff;
+  width: 45px;
+  height: 45px;
+  line-height: 43px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  border-radius: 50%;
+  transition: all 0.4s ease;
+}
+
+.social-icon-link:hover .social-icon-badge {
+  background: linear-gradient(45deg, #ff00cc, #6600ff);
+  color: white;
+  transform: scale(1.15) rotate(10deg);
+  box-shadow: 0 0 15px #ff00cc;
+}
+
+/* === MAIN LINK GRID === */
+.footer-link-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.footer-column-title {
+  font-size: 1.1rem;
+  color: #ff99ff;
+  margin-bottom: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.footer-link-list {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-link-item {
+  display: inline-block;
+  text-decoration: none;
+  color: #aaa;
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+  transition: all 0.3s ease;
+}
+
+.footer-link-item:hover {
+  color: #fff;
+  padding-left: 5px;
+  text-shadow: 0 0 5px #ff00cc;
+}
+
+/* === COPYRIGHT SECTION === */
+.footer-copyright-section {
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 30px;
+}
+
+.footer-copyright-text {
+  font-size: 0.85rem;
+  color: #666;
+  letter-spacing: 0.5px;
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 768px) {
+  .movie-footer {
+    padding: 60px 5%;
+  }
+
+  .footer-top-bar {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-social-links {
+    justify-content: center;
+  }
+
+  .footer-link-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+    gap: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-link-grid {
+    grid-template-columns: 1fr; /* Stack in 1 column on very small phones */
+    text-align: center;
   }
 }
