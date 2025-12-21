@@ -398,3 +398,117 @@ body {
     text-align: center;
   }
 }
+/* --- Navbar Container --- */
+#navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background: transparent; /* Makes it overlay on top of hero images */
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+/* --- Logo Styling --- */
+#nav-img img {
+    height: 45px; /* Standard Netflix logo height */
+    width: auto;
+    object-fit: contain;
+}
+
+/* --- Buttons Container --- */
+#nav-btn {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    position: relative; /* Needed for the dropdown positioning */
+}
+
+/* --- Language Toggle Button --- */
+.lang-btn {
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 6px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: 0.3s;
+}
+
+.lang-btn:hover {
+    border-color: white;
+}
+
+/* --- The Dropdown Wrapper (The <div> inside isDropdownopen) --- */
+#nav-btn > div {
+    position: absolute;
+    top: 110%; /* Sits exactly below the button */
+    left: 0;
+    background-color: white;
+    border-radius: 4px;
+    padding: 5px 0;
+    width: 120px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Individual Buttons inside the Dropdown --- */
+#nav-btn > div button {
+    background: none;
+    border: none;
+    padding: 8px 15px;
+    text-align: left;
+    font-size: 0.85rem;
+    color: #333;
+    cursor: pointer;
+    width: 100%;
+}
+
+#nav-btn > div button:hover {
+    background-color: #f0f0f0;
+    color: #000;
+}
+
+/* Active Language styling */
+#nav-btn > div button.active {
+    background-color: #e5e5e5;
+    font-weight: bold;
+}
+
+/* --- Sign In Button --- */
+.sign-btn {
+    background-color: #e50914; /* Netflix Red */
+    color: white;
+    border: none;
+    padding: 7px 17px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    text-transform: capitalize;
+}
+
+.sign-btn:hover {
+    background-color: #b20710; /* Darker red on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    #nav-img img {
+        height: 30px;
+    }
+    
+    .lang-btn, .sign-btn {
+        padding: 5px 10px;
+        font-size: 0.8rem;
+    }
+}
