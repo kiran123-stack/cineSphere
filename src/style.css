@@ -512,46 +512,54 @@ body {
         font-size: 0.8rem;
     }
 }
-/* ===== MOVIE CARDS FIX ===== */
-/* Target the Swiper container specifically */
+/* src/style.css */
+
+/* 1. The Swiper Container */
 .swiper {
   width: 100%;
-  padding: 40px 0 !important;
-  overflow: visible !important; /* Prevents rank numbers from being cut off */
+  /* Padding is needed so the images don't get cut when hovering/scaling */
+  padding: 50px 0 !important; 
+  overflow: visible !important; 
 }
 
-/* Define slide dimensions clearly for Swiper */
+/* 2. Slide Dimensions - CRITICAL */
 .movie-slide {
-  height: 250px;
+  height: 250px; /* Fixed height for the slide area */
   position: relative;
-  display: flex;
+  display: flex !important;
   align-items: center;
-  justify-content: flex-end; /* Push image to the right of the rank number */
+  justify-content: flex-end;
 }
 
+/* 3. The Inner Wrapper and Image */
 .ranking-card-inner {
   width: 100%;
   height: 100%;
   position: relative;
+  display: block; /* Ensure it takes up space */
 }
 
 .ranking-card-inner img {
-  width: 85%; /* Leave space for the number overlap */
+  width: 85%; /* Space for the number to overlap on the left */
   height: 100%;
   object-fit: cover;
-  border-radius: 10px;
-  display: block;
+  border-radius: 8px;
+  display: block !important; /* Forces the browser to render the image */
+  position: absolute;
+  right: 0;
+  z-index: 5;
 }
 
+/* 4. The Rank Number */
 .ranking-number {
   position: absolute;
-  left: -15px;
-  bottom: -15px;
-  font-size: clamp(80px, 10vw, 140px);
+  left: -20px;
+  bottom: -20px;
+  font-size: clamp(80px, 12vw, 150px);
   font-weight: 900;
   color: #000;
   -webkit-text-stroke: 2px #fff;
-  z-index: 2;
+  z-index: 2; /* Sits behind the image but above the background */
   line-height: 1;
 }
 /* ===================================================
