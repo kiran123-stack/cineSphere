@@ -523,12 +523,28 @@ body {
 }
 
 /* 2. Slide Dimensions - CRITICAL */
-.movie-slide {
-  height: 250px; /* Fixed height for the slide area */
+
+ .movie-slide {
+  width: 100%;             /* Allow Swiper to control the width on mobile */
+  height: 250px;           /* Set a clear height so it doesn't collapse */
   position: relative;
   display: flex !important;
   align-items: center;
   justify-content: flex-end;
+}
+.movie-slide img {
+  width: 85%;              /* Ensure image has width relative to the slide */
+  height: 100%;            /* Force height to match the slide */
+  object-fit: cover;
+  display: block !important; /* Ensure the browser renders the element */
+  border-radius: 10px;
+}
+
+/* On Desktop, you can limit the width again */
+@media (min-width: 1024px) {
+  .movie-slide {
+    height: 180px; 
+  }
 }
 
 /* 3. The Inner Wrapper and Image */
