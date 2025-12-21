@@ -516,16 +516,18 @@ body {
    CINESPHERE TRENDING CARDS - PINK & PURPLE THEME
    =================================================== */
 
-/* 1. Swiper Container Fixes */
+/* 1. Main Swiper Container */
 .swiper {
     width: 100%;
-    padding: 50px 0 !important; /* Spacing for the hover scaling */
-    overflow: visible !important; /* Allows rank numbers to pop out */
+    /* Extra padding at the top/bottom for hover scale and left for rank numbers */
+    padding: 60px 0 60px 50px !important; 
+    /* Essential to prevent rank numbers from being cut off */
+    overflow: visible !important; 
 }
 
-/* 2. Slide & Card Dimensions */
+/* 2. Individual Slide Styling */
 .movie-slide {
-    /* Responsive heights for mobile vs desktop */
+    /* Height for mobile */
     height: 250px; 
     position: relative;
     display: flex;
@@ -535,9 +537,10 @@ body {
     background: transparent !important;
 }
 
+/* Adjust height for Desktop screens */
 @media (min-width: 1024px) {
     .movie-slide {
-        height: 180px; /* Wider, standard look for desktop */
+        height: 180px; 
     }
 }
 
@@ -551,36 +554,39 @@ body {
 
 /* 3. Movie Poster Image */
 .ranking-card-inner img {
-    width: 85%; /* Leave 15% space for the ranking number overlap */
+    /* Leave space for the ranking number overlap */
+    width: 85%; 
     height: 100%;
     object-fit: cover;
     border-radius: 12px;
     position: absolute;
     right: 0;
-    z-index: 5; /* Image sits on top of the number shadow */
+    z-index: 5; /* Image sits on top of the number's shadow */
     border: 2px solid transparent;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
+/* Hover Effect: Scale and Glow */
 .movie-slide:hover img {
     transform: scale(1.1) translateY(-10px);
     border-color: #ff007f; /* primary-pink */
-    box-shadow: 0 0 20px #ff007f, 0 0 40px rgba(157, 0, 255, 0.3);
+    box-shadow: 0 0 25px #ff007f, 0 0 50px rgba(157, 0, 255, 0.3);
 }
 
 /* 4. Large Netflix-Style Rank Numbers */
 .ranking-number {
     position: absolute;
-    left: -20px;
+    left: -25px;
     bottom: -15px;
-    font-size: clamp(80px, 12vw, 150px); /* Responsive size scaling */
+    /* Responsive size scaling */
+    font-size: clamp(80px, 12vw, 150px); 
     font-weight: 900;
     line-height: 1;
     z-index: 1; /* Sits behind the image */
     
     /* Modern Outline Style */
     color: #0f0715; /* bg-dark */
-    -webkit-text-stroke: 2px #b1a0c7; /* text-muted lavender */
+    -webkit-text-stroke: 2px #b1a0c7; /* lavender outline */
     text-shadow: 0 0 15px rgba(157, 0, 255, 0.5);
     
     user-select: none;
@@ -588,9 +594,9 @@ body {
     transition: all 0.4s ease;
 }
 
+/* Change number color to pink on hover */
 .movie-slide:hover .ranking-number {
     -webkit-text-stroke: 2px #ff007f;
-    color: rgba(255, 0, 127, 0.1);
     text-shadow: 0 0 30px #ff007f;
 }
 
@@ -598,7 +604,7 @@ body {
 .swiper-button-next,
 .swiper-button-prev {
     color: #ff007f !important;
-    background: rgba(15, 7, 21, 0.8);
+    background: rgba(15, 7, 21, 0.85);
     width: 50px !important;
     height: 80px !important;
     top: 50% !important;
@@ -610,7 +616,7 @@ body {
 
 .swiper-button-next::after,
 .swiper-button-prev::after {
-    font-size: 24px !important;
+    font-size: 22px !important;
     font-weight: 900;
 }
 
@@ -623,13 +629,14 @@ body {
 
 /* 6. Mobile Specific Overrides */
 @media (max-width: 768px) {
+    /* Hide arrows on mobile for cleaner swiping */
     .swiper-button-next,
     .swiper-button-prev {
-        display: none !important; /* Hide arrows on small phones for better UX */
+        display: none !important; 
     }
     
     .swiper {
-        padding-left: 30px !important;
+        padding-left: 35px !important;
     }
 
     .movie-slide {
