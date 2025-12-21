@@ -512,75 +512,59 @@ body {
         font-size: 0.8rem;
     }
 }
-/* Container Fix */
-#card {
-  width: 100%;
-  padding: 20px 0;
-  background-color: transparent;
-}
-
-/* Swiper Fix */
+/* Swiper Container Fix */
 .swiper {
   width: 100%;
-  padding: 40px 0 !important;
-  overflow: visible !important; /* Critical for rank numbers and scaling */
+  padding: 60px 0 !important; 
+  overflow: visible !important; /* Allows numbers to overlap */
 }
 
-/* Individual Slide Logic */
+/* Slide Styling */
 .movie-slide {
-  height: 250px; /* Fixed height for both devices */
+  height: 280px; /* Specific height for Mobile visibility */
   display: flex !important;
-  justify-content: center;
   align-items: center;
-  transition: transform 0.3s ease;
+  justify-content: center;
 }
 
 @media (min-width: 1024px) {
   .movie-slide {
-    height: 180px; /* Shorter landscape look for desktop */
+    height: 180px; /* Standard look for Desktop */
   }
 }
 
-/* The Inner Wrapper */
+/* Inner Wrapper */
 .ranking-card-inner {
   width: 100%;
   height: 100%;
   position: relative;
   display: flex;
-  justify-content: flex-end; /* Keeps image to the right */
+  justify-content: flex-end; /* Aligns image to the right of the number */
 }
 
-/* The Image - Fixed Visibility */
+/* IMAGE FIX: This forces the image to be visible */
 .ranking-card-inner img {
-  width: 80% !important; /* Leaves room for the number */
+  width: 80% !important; /* Forces a width so Swiper can calculate space */
   height: 100% !important;
   object-fit: cover;
-  border-radius: 8px;
-  display: block !important;
-  position: relative; /* Changed from absolute to help Swiper calculate width */
-  z-index: 5;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+  border-radius: 10px;
+  display: block !important; /* Essential for mobile rendering */
+  position: relative; /* Changed from absolute to fix visibility */
+  z-index: 5; 
 }
 
-/* The Rank Number */
+/* Rank Number Styling */
 .ranking-number {
   position: absolute;
-  left: -10px; /* Adjusted for better overlap */
+  left: -15px;
   bottom: -15px;
-  font-size: clamp(100px, 15vw, 160px); /* Bigger for impact */
+  font-size: clamp(100px, 15vw, 160px); 
   font-weight: 900;
   color: #000;
   -webkit-text-stroke: 2px rgba(255, 255, 255, 0.6);
-  z-index: 1; /* Behind the image */
+  z-index: 1; /* Sits behind the image */
   line-height: 0.8;
-  font-family: sans-serif;
-  user-select: none;
-}
-
-/* Hover Effect for Desktop */
-.movie-slide:hover {
-  transform: scale(1.05);
-  z-index: 50;
+  pointer-events: none;
 }
 /* ===================================================
    MOVIE FAQ SECTION - Pink & Purple Glowing Theme
