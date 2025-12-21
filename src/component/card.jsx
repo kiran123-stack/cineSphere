@@ -16,8 +16,19 @@ const Card = () => {
       spaceBetween={35} // Adjusted spacing slightly for realism
       slidesPerView={'auto'} // Changed to 4, as 3 is often too wide for mobile
       navigation={true}
-      pagination={false}
-      scrollbar={false}
+      breakpoints={{
+    // when window width is >= 320px (Phones)
+    320: {
+      slidesPerView: 1,
+    },
+    // when window width is >= 1024px (Desktop)
+    1024: {
+      slidesPerView: 4,
+    },
+  }}
+  pagination={false}
+  scrollbar={false}
+      
     >
       <SwiperSlide className="movie-slide">
         <div class="ranking-card-inner">
