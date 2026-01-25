@@ -29,5 +29,4 @@ This project showcases front-end development skills using **React**, **Tailwind 
 
 ---
 
-## 📁 Folder Structure
 
